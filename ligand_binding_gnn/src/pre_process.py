@@ -1,8 +1,33 @@
 # from esm.data import BatchConverter
+# import esm
+
+# esm_model, alphabet = esm.pretrained.esm2_t33_650M_UR50S()
+# batch_converter = alphabet.get_batch_converter()
+
+
+
+import torch
 import esm
 
-esm_model, alphabet = esm.pretrained.esm2_t33_650M_UR50S()
+# This will give you the ESM-2 650M model & alphabet
+esm_model, alphabet = esm.pretrained.load_model_and_alphabet_hub(
+    "esm2_t33_650M_UR50S"
+)
 batch_converter = alphabet.get_batch_converter()
+
+esm_model = esm_model.to("cuda" if torch.cuda.is_available() else "cpu")
+esm_model.eval()
+
+
+
+
+
+
+
+
+
+
+
 
 import os
 import urllib.request
