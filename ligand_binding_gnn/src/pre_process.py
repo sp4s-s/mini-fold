@@ -1,4 +1,9 @@
-from esm.data import BatchConverter
+# from esm.data import BatchConverter
+import esm
+
+esm_model, alphabet = esm.pretrained.esm2_t33_650M_UR50S()
+batch_converter = alphabet.get_batch_converter()
+
 import os
 import urllib.request
 import gzip
