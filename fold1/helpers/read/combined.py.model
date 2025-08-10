@@ -1,0 +1,4 @@
+# Pseudocode for caching
+protein_embed = esm_model(sequence)
+ligand_embed = smiles_transformer(smiles)
+np.savez("cached_pair.npz", protein=protein_embed, ligand=ligand_embed, label=affinity)

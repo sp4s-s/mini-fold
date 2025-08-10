@@ -1,0 +1,44 @@
+defaults:
+  - _self_
+
+experiment:
+  name: binding-gnn
+  seed: 42
+
+data:
+  cache_dir: ./cache
+  num_workers: 4
+  mode: embed
+  max_samples: null
+
+training:
+  device: cuda
+  epochs: 10
+  batch_size: 32
+  accumulation_steps: 2
+  lr: 1e-4
+  weight_decay: 1e-5
+  grad_clip_norm: 1.0
+  amp: true
+  save_every: 1
+  validate_every: 1
+  max_grad_norm: 1.0
+
+model:
+  protein_dim: 1280
+  ligand_dim: 768
+  hidden: 1024
+  fusion: concat
+  graph_hidden: 256
+  graph_layers: 3
+  dropout: 0.1
+
+logging:
+  wandb: true
+  wandb_project: binding-gnn
+  neptune: false
+  neptune_project: ""
+
+checkpoint:
+  dir: ./checkpoints
+  resume: null
