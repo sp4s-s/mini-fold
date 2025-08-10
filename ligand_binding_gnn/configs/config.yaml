@@ -6,7 +6,7 @@ experiment:
   seed: 42
 
 data:
-  cache_dir: ./cache
+  cache_dir: ./data
   num_workers: 4
   mode: embed
   max_samples: null
